@@ -1,7 +1,15 @@
-<button mat-raised-button color="warn">
-  <mat-icon>exit_to_app</mat-icon>
-  Log out</button>
-<mat-form-field>
-  <input type="text" matInput placeholder="Enter your name" required name="insert_name">
-</mat-form-field>
+
+<div fxLayout="row" fxLayout.md="column"  fxLayoutAlign="center center">
+  <div>
+    <button mat-raised-button color="warn">
+      <mat-icon>exit_to_app</mat-icon>
+      Log out</button>
+  </div>
+  <div>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Enter your name" required name="insert_name">
+    </mat-form-field>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
