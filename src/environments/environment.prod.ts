@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  api: 'http://szia-backend.herokuapp.com/api'
 };

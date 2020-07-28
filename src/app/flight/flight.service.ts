@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs/index";
+import {environment} from "../../environments/environment";
+import {Flight} from "./models/flight.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class FlightService {
   constructor(private http: HttpClient) {
   }
 
-  listFlight(): Observable<any>{
+  listFlight(): Observable<Flight[]>{
 
-    return this.http.get('/someUrl');
+    return this.http.get<Flight[]>(`${environment.api}/Flights`);
   }
 }

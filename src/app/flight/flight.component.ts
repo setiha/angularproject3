@@ -7,18 +7,18 @@ import {FlightService} from "./flight.service";
   styleUrls: ['./flight.component.scss']
 })
 export class FlightComponent implements OnInit {
-flights: any;
-  constructor( private flightService: FlightService) {
-  this.flightService = flightService;
+  flights: any;
+
+  constructor(private flightService: FlightService) {
+    this.flightService = flightService;
   }
 
   ngOnInit(): void {
-   this.flights = this.flightService.listFlight().subscribe(
-     data => console.log(data),
-     e => console.log(e),
-     () => console.log('completed')
-   );
-   console.log(this.flights);
+    this.flights = this.flightService.listFlight().subscribe(
+      data => console.log(data),
+      e => console.log(e),
+      () => console.log('completed')
+    );
   }
 
 }

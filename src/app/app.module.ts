@@ -9,10 +9,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {FlightComponent} from "./flight/flight.component";
 import {FlightModule} from "./flight/flight.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptorService} from "./core/auth-interceptor.service";
+import {MatTableModule} from "@angular/material/table";
 
 
 
@@ -31,7 +31,8 @@ import {AuthInterceptorService} from "./core/auth-interceptor.service";
     MatInputModule,
     FlexLayoutModule,
     FlightModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
