@@ -1,5 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FlightService} from "./flight.service";
+import {ActivatedRoute} from "@angular/router";
+import {map} from "rxjs/internal/operators";
 
 @Component({
   selector: 'app-flight',
@@ -8,17 +10,16 @@ import {FlightService} from "./flight.service";
 })
 export class FlightComponent implements OnInit {
   flights: any;
+  flightId: number;
+  tucat: any;
 
-  constructor(private flightService: FlightService) {
+  constructor(private flightService: FlightService, private activatedRoute: ActivatedRoute) {
     this.flightService = flightService;
   }
 
   ngOnInit(): void {
-    this.flights = this.flightService.listFlight().subscribe(
-      data => console.log(data),
-      e => console.log(e),
-      () => console.log('completed')
-    );
+    this.activatedRoute.params.pipe(map(params => params.id)).subscribe(id => this.flightId = id);
+
   }
 
 }
