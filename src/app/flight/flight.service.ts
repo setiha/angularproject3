@@ -16,4 +16,8 @@ export class FlightService {
 
     return this.http.get<Flight[]>(`${environment.api}/Flights`);
   }
+  getFlight(id: number): Observable<Flight>{
+
+    return this.http.get<Flight>(`${environment.api}/Flights/${id}`);
+  }
 }

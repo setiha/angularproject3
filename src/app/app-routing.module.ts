@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
 import {FlightComponent} from "./flight/flight.component";
+import {FlightDetailsResolverService} from "./flight/flight-details-resolver.service";
 
 const routes: Routes = [
   {
@@ -15,7 +16,10 @@ const routes: Routes = [
   },
   {
     path: 'flights/:id',
-    component: FlightComponent
+    component: FlightComponent,
+    resolve: {
+      flight: FlightDetailsResolverService
+    }
   },
   {
     path: 'flights',
