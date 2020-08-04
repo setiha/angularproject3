@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
-import {FlightComponent} from "./flight/flight.component";
-import {FlightDetailsResolverService} from "./flight/flight-details-resolver.service";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -15,16 +14,14 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'flights/:id',
-    component: FlightComponent,
-    resolve: {
-      flight: FlightDetailsResolverService
-    }
+    path: 'flights',
+    loadChildren: './flight/flight.module#FlightModule'
   },
   {
-    path: 'flights',
-    component: FlightComponent
+    path: '**',
+    component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({

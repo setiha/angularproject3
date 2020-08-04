@@ -15,6 +15,7 @@ import {AuthInterceptorService} from "./core/auth-interceptor.service";
 import {MatTableModule} from "@angular/material/table";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

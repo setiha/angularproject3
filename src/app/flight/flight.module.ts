@@ -4,6 +4,7 @@ import { FlightComponent } from './flight.component';
 import { FligthsListComponent } from './fligths-list/fligths-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
+import {FlightRoutingModule} from "./flight-routing.module";
 
 
 
@@ -14,7 +15,8 @@ import {MatTableModule} from "@angular/material/table";
   imports: [
     CommonModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FlightRoutingModule
   ],
 })
 export class FlightModule { }
