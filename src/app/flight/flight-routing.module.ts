@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import {FlightComponent} from "./flight.component";
+import {FlightComponent} from "./flight/flight.component";
 import {FlightDetailsResolverService} from "./flight-details-resolver.service";
 import {RouterModule, Routes} from "@angular/router";
-import {FligthsListComponent} from "./fligths-list/fligths-list.component";
+import {FligthListComponent} from "./fligth-list/fligth-list.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: FligthsListComponent
+    component: FligthListComponent
   },
   {
     path: ':id',

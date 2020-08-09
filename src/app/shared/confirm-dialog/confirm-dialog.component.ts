@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+
 
 export interface ConfirmDialogData {
   question: string;

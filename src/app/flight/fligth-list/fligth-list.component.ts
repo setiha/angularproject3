@@ -1,15 +1,15 @@
 ///<reference path="../../../../node_modules/rxjs/internal/operators/debounceTime.d.ts"/>
 import {Component, OnInit} from '@angular/core';
 import {FlightService} from "../flight.service";
-import {Flight} from "../models/flight.model";
+import {Flight} from "../flight.model";
 import {debounceTime, map, tap} from "rxjs/internal/operators";
 
 @Component({
-  selector: 'app-fligths-list',
-  templateUrl: './fligths-list.component.html',
-  styleUrls: ['./fligths-list.component.scss']
+  selector: 'app-fligth-list',
+  templateUrl: './fligth-list.component.html',
+  styleUrls: ['./fligth-list.component.scss']
 })
-export class FligthsListComponent implements OnInit {
+export class FlightListComponent implements OnInit {
   flights: Flight[];
   displayedColums = ['flightNumber', 'departureCity', 'arrivalCity'];
 

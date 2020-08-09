@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FlightService} from "./flight.service";
+import {FlightService} from "../flight.service";
 import {ActivatedRoute} from "@angular/router";
 import {map} from "rxjs/internal/operators";
-import {Flight} from "./models/flight.model";
+import {Flight} from "../flight.model";
 
 @Component({
   selector: 'app-flight',

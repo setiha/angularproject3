@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {Flight} from "./models/flight.model";
+import {Flight} from "./flight.model";
 import {Observable} from "rxjs/index";
 import {FlightService} from "./flight.service";
 
