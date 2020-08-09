@@ -11,13 +11,15 @@ import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FlightModule} from "./flight/flight.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthInterceptorService} from "./core/auth-interceptor.service";
+import {AuthInterceptorService} from "./auth/auth-interceptor.service";
 import {MatTableModule} from "@angular/material/table";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import {MatProgressSpinnerModule, MatSpinner} from "@angular/material/progress-spinner";
 import {FormsModule} from "@angular/forms";
+import { ComplaintComponent } from './complaint/complaint.component';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -27,7 +29,9 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComplaintComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

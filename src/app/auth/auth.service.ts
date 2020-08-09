@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
-import {User} from './user.model';
-import {LoginResponse} from './login-response.model';
+import {User} from './user';
+import {LoginResponse} from './login-response';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
