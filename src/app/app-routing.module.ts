@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {AuthGuardService} from "./auth/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -14,8 +15,14 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'flights',
-    loadChildren: './flight/flight.module#FlightModule'
+    path: '',
+    canActivate: [AuthGuardService],
+    children: [
+      {
+        path: 'flights',
+        loadChildren: './flight/flight.module#FlightModule'
+      }
+    ]
   },
   {
     path: '**',
@@ -28,4 +35,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

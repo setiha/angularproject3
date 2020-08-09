@@ -16,6 +16,8 @@ import {MatTableModule} from "@angular/material/table";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {MatProgressSpinnerModule, MatSpinner} from "@angular/material/progress-spinner";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -30,11 +32,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
     FlexLayoutModule,
     FlightModule,
     HttpClientModule,

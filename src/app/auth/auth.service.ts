@@ -1,39 +1,77 @@
-import { Injectable } from '@angular/core';
-import {environment} from "../../environments/environment";
-import {BehaviorSubject, Observable} from "rxjs/index";
-import {HttpClient} from "@angular/common/http";
-
- export class User {
-id: number;
-username: string;
-email: string;
-}
-
-export class LoginResponse {
-   id: string;
-   userId: number;
-   created: number;
-   ttl: number;
-}
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {map, mergeMap} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {User} from './user.model';
+import {LoginResponse} from './login-response.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-private baseUrl = `${environment.api}/SziaUsers`;
-currentUser = new BehaviorSubject<User>(undefined);
+  private baseUrl = `${environment.api}/login`;
+  currentUser = new BehaviorSubject<User>(undefined);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    if (this.isValidTokenPresent()) {
+      this.currentUser.next(JSON.parse(localStorage.getItem(environment.userKey)));
+    } else {
+      this.clearLocalStorage();
+    }
+
+  }
   isLoggedIn(): boolean {
-    return false;
+    return this.currentUser.getValue() !== undefined;
   }
-  logIn(username: string, password: string): Observable<login > {
-    return undefined;
+
+  logIn(email: string, password: string) {
+    return this.http.post<LoginResponse>(`${environment.loginUrl}=${environment.tokenKey}`,
+      {
+        'email': email,
+        'password': password,
+        'returnSecureToken': true
+      })
+      .pipe(mergeMap(response => {
+        console.log('Response:', response);
+        this.storeTokenAndValidity(response);
+        console.log(localStorage.getItem(environment.tokenValidityEndKey));
+        return this.loadUserProfile(response.localId);
+
+      }));
   }
-  logOut(): Observable<any>{
-    return undefined;
+
+  logOut() {
+    return this.http.post(`${this.baseUrl}/logout`, null)
+      .pipe(map(() => {
+        this.clearLocalStorage();
+        this.currentUser.next(undefined);
+      }));
   }
-  loadUserProfile(): Observable<User> {
-    return undefined;
+
+  private clearLocalStorage(): any {
+    localStorage.removeItem(environment.tokenKey);
+    localStorage.removeItem(environment.tokenValidityEndKey);
+    localStorage.removeItem(environment.userKey);
   }
- }
+
+  private loadUserProfile(userId: number): any {
+    return this.http.get<User>(`${this.baseUrl}/${userId}.json`)
+      .pipe(map(currentUser => {
+        this.currentUser.next(currentUser);
+
+      }));
+  }
+
+  private isValidTokenPresent(): any {
+    const tokenValidityEnd = Number(localStorage.getItem(environment.tokenValidityEndKey));
+    return tokenValidityEnd >= new Date().getMilliseconds();
+  }
+
+  private storeTokenAndValidity(response: LoginResponse): any {
+
+    localStorage.setItem(environment.tokenKey, response.localId);
+    const tokenValidityEnd = new Date(response.created).getMilliseconds() + response.ttl * 1000;
+    localStorage.setItem(environment.tokenValidityEndKey, tokenValidityEnd.toString());
+  }
+}
