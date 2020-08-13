@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComplaintLisComponent } from './complaint-lis.component';
+import { ComplaintLisComponent } from './complaint-list.component';
 
 describe('ComplaintLisComponent', () => {
   let component: ComplaintLisComponent;

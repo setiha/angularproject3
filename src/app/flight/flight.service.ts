@@ -13,12 +13,11 @@ export class FlightService {
   }
 
   listFlight(): Observable<Flight[]> {
-
-    return this.http.get<Flight[]>(`${environment.api}/Flights`);
+    return this.http.get<Flight[]>(`${environment.baseUrl}/flights.json`);
   }
 
   getFlight(id: number): Observable<Flight> {
 
-    return this.http.get<Flight>(`${environment.api}/Flights/${id}`);
+    return this.http.get<Flight>(`${environment.baseUrl}/flights/${id}`);
   }
 }

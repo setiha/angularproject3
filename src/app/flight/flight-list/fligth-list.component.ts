@@ -1,15 +1,15 @@
-///<reference path="../../../../node_modules/rxjs/internal/operators/debounceTime.d.ts"/>
+
 import {Component, OnInit} from '@angular/core';
 import {FlightService} from "../flight.service";
 import {Flight} from "../flight.model";
 import {debounceTime, map, tap} from "rxjs/internal/operators";
 
 @Component({
-  selector: 'app-fligth-list',
-  templateUrl: './fligth-list.component.html',
-  styleUrls: ['./fligth-list.component.scss']
+  selector: 'app-flight-list',
+  templateUrl: './flight-list.component.html',
+  styleUrls: ['./flight-list.component.scss']
 })
-export class FlightListComponent implements OnInit {
+export class FligthListComponent implements OnInit {
   flights: Flight[];
   displayedColums = ['flightNumber', 'departureCity', 'arrivalCity'];
 
@@ -20,14 +20,10 @@ export class FlightListComponent implements OnInit {
     this.flightService.listFlight()
       .pipe(
         debounceTime(400),
-        map(flights => flights.map(flight => {
-          delete flight.delay;
-          return flight;
-        })),
+        map(flights => Object.keys(flights).map(flight => flights [flight])),
         tap(() => console.log('do something'))
       )
       .subscribe(flights => {
-        console.log(flights);
         this.flights = flights;
       });
   }

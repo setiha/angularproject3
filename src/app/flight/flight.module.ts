@@ -4,7 +4,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {FlightRoutingModule} from "./flight-routing.module";
 import {FlightComponent} from "./flight/flight.component";
-import {FligthListComponent} from "./fligth-list/fligth-list.component";
+import {FligthListComponent} from "./flight-list/fligth-list.component";
 
 
 

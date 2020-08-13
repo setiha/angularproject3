@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ComplaintComponent } from './complaint/complaint.component';
-import { ComplaintListComponent } from './complaint-list/complaint-list.component';
+import {ComplaintListComponent} from "./complaint-list/complaint-list.component";
+
 
 const routes: Routes = [
   {

@@ -1,0 +1,38 @@
+{
+  "1" : {
+    "airlineId" : "SzekelyAirlines",
+    "arrival" : "12:00",
+    "arrivalCity" : "Kapolnas",
+    "arrivalCode" : "222333",
+    "arrivalTime" : "12:00",
+    "checkinDeskNumber" : "Ok",
+    "comment" : "Nincs",
+    "delay" : "None",
+    "departure" : "10:00",
+    "departureCity" : "Lovete",
+    "departureCode" : "11222",
+    "departureTime" : "10:00",
+    "flightNumber" : "10",
+    "gateNumber" : "12",
+    "id" : "1",
+    "status" : "Szabad"
+  },
+  "2" : {
+    "airlineId" : "UdvarhelyiLegikikoto",
+    "arrival" : "23:00",
+    "arrivalCity" : "Budapest",
+    "arrivalCode" : "303303",
+    "arrivalTime" : "23:00",
+    "checkinDeskNumber" : "Ok",
+    "comment" : "Nincs",
+    "delay" : "None",
+    "departure" : "21:00",
+    "departureCity" : "Berlin",
+    "departureCode" : "205333",
+    "departureTime" : "21:00",
+    "flightNumber" : "30",
+    "gateNumber" : "09",
+    "id" : "2",
+    "status" : "Van meg hely"
+  }
+}

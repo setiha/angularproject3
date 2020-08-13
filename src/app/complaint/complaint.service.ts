@@ -8,7 +8,7 @@ import { NewComplaint } from './new-complaint';
   providedIn: 'root'
 })
 export class ComplaintService {
-  private baseUrl = `${environment.baseUrl}/Complaints`;
+  private baseUrl = `${environment.baseUrl}/Complaints.json`;
 
   constructor(private http: HttpClient) {}
 

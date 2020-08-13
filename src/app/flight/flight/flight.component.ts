@@ -17,6 +17,6 @@ export class FlightComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe((data: { flight: Flight }) => this.flight = data.flight);
+    this.activatedRoute.data.subscribe((data: {flight: Flight }) => this.flight = data.flight);
   }
 }

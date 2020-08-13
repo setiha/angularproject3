@@ -10,7 +10,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = `${environment.api}/login`;
+  private baseUrl = `${environment.baseUrl}/login`;
   currentUser = new BehaviorSubject<User>(undefined);
 
   constructor(private http: HttpClient) {
