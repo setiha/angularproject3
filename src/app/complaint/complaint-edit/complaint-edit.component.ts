@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Complaint} from "../complaint";
 
 @Component({
   selector: 'app-complaint-edit',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./complaint-edit.component.scss']
 })
 export class ComplaintEditComponent implements OnInit {
+  complaint = new Complaint();
+urlValidationPattern =  '^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&\'\\(\\)\\*\\+,;=.]+$';
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+    this.complaint.name = 'teszt';
   }
 
 }

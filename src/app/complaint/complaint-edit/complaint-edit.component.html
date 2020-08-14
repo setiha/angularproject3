@@ -1,1 +1,32 @@
-<p>complaint-edit works!</p>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form fxFlex="70%" fxFlex.lt-sm="100%" fxLayout="column" #form="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)] = "complaint.name" name="name" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)] = "complaint.email"  name="email" email required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput [(ngModel)] =  "complaint.phoneNumber"  name="phoneNumber">
+    </mat-form-field>
+    <h3>Complaint info</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <input matInput [(ngModel)] =  "complaint.subject"  name="subject" required maxlength="30">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label rows="2">Content</mat-label>
+      <textarea matInput [(ngModel)] =  "complaint.content"  name="content"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput [(ngModel)] =  "complaint.imageSource"  name="imageSource" [pattern]=" urlValidationPattern">
+    </mat-form-field>
+      <button mat-raised-button color="primary" fxFlexAlign = "start" fxFlexAlign.lt-lg="stretch">Submit</button>
+
+  </form>
+</div>
+{{complaint | json}}
