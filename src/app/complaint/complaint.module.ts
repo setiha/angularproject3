@@ -6,7 +6,7 @@ import { ComplaintComponent } from './complaint/complaint.component';
 import { ComplaintListComponent } from './complaint-list/complaint-list.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -27,7 +27,8 @@ import { ComplaintEditComponent } from './complaint-edit/complaint-edit.componen
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ]
 })
 export class ComplaintModule {}

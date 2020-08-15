@@ -15,8 +15,7 @@ export class ComplaintListComponent implements OnInit {
 
   ngOnInit() {
     this.complaintService.getComplaints().pipe(
-      map(complaints => Object.keys(complaints).map(complaint => complaints [complaint])),
-      tap(() => console.log('do something'))
+      map(complaints => Object.keys(complaints).map(complaint => complaints [complaint]))
     )
       .subscribe(complaints => {
         this.complaints = complaints;
