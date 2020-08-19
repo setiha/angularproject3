@@ -1,7 +1,7 @@
 import { NewComplaint } from './new-complaint';
 
 export class Complaint extends NewComplaint {
-  id: number;
+  id: any;
 
   constructor(from?: Complaint) {
     super(from);

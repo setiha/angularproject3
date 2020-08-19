@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ComplaintService } from '../complaint.service';
-import { Complaint } from '../complaint';
+import {Component, OnInit} from '@angular/core';
+import {ComplaintService} from '../complaint.service';
+import {Complaint} from '../complaint';
 import {map, tap} from "rxjs/internal/operators";
 
 @Component({
@@ -11,7 +11,8 @@ import {map, tap} from "rxjs/internal/operators";
 export class ComplaintListComponent implements OnInit {
   complaints: Complaint[];
 
-  constructor(private complaintService: ComplaintService) {}
+  constructor(private complaintService: ComplaintService) {
+  }
 
   ngOnInit() {
     this.complaintService.getComplaints().pipe(
@@ -19,6 +20,7 @@ export class ComplaintListComponent implements OnInit {
     )
       .subscribe(complaints => {
         this.complaints = complaints;
+        console.log(complaints);
       });
   }
 }

@@ -28,10 +28,11 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Image URL</mat-label>
-      <input matInput [(ngModel)] =  "complaint.imageSource"  name="imageSource" [pattern]=" urlValidationPattern">
-      <mat-error>Provided image URL is not a valid URL</mat-error>
+      <input matInput [(ngModel)] =  "complaint.imageSource"  name="imageSource">
     </mat-form-field>
-      <button mat-raised-button color="primary" fxFlexAlign = "start" fxFlexAlign.lt-lg="stretch" [disabled] = form.invalid (click) ="submitted()">Submit</button>
+    <div fxFlexAlign = "start" fxFlexAlign.lt-lg="stretch">
+      <button mat-raised-button color="primary"  [disabled] = "form.invalid || isLoading"  (click) ="submitted()">Submit</button>
+    <mat-spinner *ngIf="isLoading"  fxFlex="none" diameter="35"></mat-spinner>
+    </div>
   </form>
 </div>
-{{complaint | json}}
